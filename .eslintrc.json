@@ -1,0 +1,82 @@
+{
+  "root": true,
+  "plugins": ["sonarjs", "deprecation"],
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:sonarjs/recommended",
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/no-input-rename": "warn",
+        "@angular-eslint/directive-class-suffix": "warn",
+        "@typescript-eslint/explicit-member-accessibility": [
+          "off",
+          {
+            "accessibility": "explicit"
+          }
+        ],
+        "@typescript-eslint/prefer-readonly": "error",
+        "@typescript-eslint/naming-convention": "warn",
+        "@typescript-eslint/member-ordering": "warn",
+        "arrow-parens": [
+          "off",
+          "always"
+        ],
+        "import/order": "off",
+        "max-len": [
+          "error",
+          {
+            "code": 160
+          }
+        ],
+        "id-blacklist": "warn",
+        "arrow-body-style": "warn",
+        "no-trailing-spaces": "off",
+        "no-duplicate-imports": "error",
+        "deprecation/deprecation": "warn",
+        "prefer-arrow/prefer-arrow-functions": "warn"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}
